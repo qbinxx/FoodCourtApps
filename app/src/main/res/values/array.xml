@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="images">
+        <item>@drawable/ic_star</item>
+        <item>@drawable/ic_neutron</item>
+        <item>@drawable/ic_paper_plane</item>
+        <item>@drawable/ic_green_hand</item>
+        <item>@drawable/ic_mimbar</item>
+        <item>@drawable/ic_img</item>
+    </array>
+
+    <string-array name="names">
+        <item>POPULER</item>
+        <item>IPTEK</item>
+        <item>RILEKS</item>
+        <item>LINGKUNGAN</item>
+        <item>KOMUNITAS</item>
+        <item>MOMENTS</item>
+    </string-array>
+
+    <string-array name="judul">
+        <item>Medali Emas Pertama Indonesia di Olimpiade Rio</item>
+        <item>Bumi memiliki permukaan datar?</item>
+    </string-array>
+
+    <string-array name="publisher">
+        <item>Riki Sukmawan</item>
+        <item>Admin</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>description of Medali Emas Pertama Indonesia di Olimpiade Rio</item>
+        <item>description of Bumi memiliki permukaan datar?</item>
+    </string-array>
+
+    <array name="news_image">
+    </array>
+</resources>

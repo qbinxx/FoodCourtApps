@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:background="@drawable/side_nav_bar"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:id="@+id/header"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <FrameLayout
+        android:id="@+id/frame_user_photo"
+        android:layout_width="60dp"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/nav_header_PhotoUser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circle_shape"
+            />
+
+        <TextView
+            android:id="@+id/nav_text_user_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/nav_header_UserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Qepon Square PPNI"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:id="@+id/nav_header_Profession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+</LinearLayout>
