@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+    <FrameLayout
+        android:id="@+id/frame_user_photo"
+        android:layout_width="60dp"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/user_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circle_shape"
+            />
+
+        <TextView
+            android:id="@+id/text_user_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Riki Sukmawan"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/frame_user_photo"
+        android:paddingLeft="20dp"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rp 21,999"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:textColor="@color/green"
+        />
+
+    <TextView
+        android:id="@+id/stock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stock :"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:layout_alignLeft="@id/food_name"
+        android:layout_below="@id/food_name"
+        android:textColor="@color/green"
+        />
+
+    <TextView
+        android:id="@+id/amount_stock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Available"
+        android:layout_toRightOf="@id/stock"
+        android:layout_alignTop="@id/stock"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:paddingLeft="2dp"
+        android:paddingTop="20dp"
+        android:textColor="@color/green"
+        />
+
+
+
+
+</RelativeLayout>

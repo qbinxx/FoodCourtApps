@@ -14,10 +14,7 @@
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/FullscreenTheme">
-
-
-        </activity>
+            android:theme="@style/FullscreenTheme" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
@@ -25,7 +22,6 @@
 
         <activity
             android:name=".MenuActivity"
-            android:label="Explore"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppBaseTheme">
             <meta-data
@@ -44,6 +40,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".ListMenuActivity" />
+        <activity android:name=".DetailMenuActivity" />
+        <activity android:name=".TenantActivity"></activity>
     </application>
 
 </manifest>

@@ -14,14 +14,17 @@ import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -132,36 +135,15 @@ public class MainActivity extends DrawerActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        final MenuItem miniCard = menu.findItem(R.id.mini_card_settings);
-        if(Variable.getMiniCardConf(c)) {
-            miniCard.setChecked(true);
-        } else {
-            miniCard.setChecked(false);
-        }
+
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.refresh:
-//                page_position = mViewPager.getViewPager().getCurrentItem();
-//                setMViewPager(TYPE,page_position);
-                lastPosition = mViewPager.getViewPager().getCurrentItem();
-                loadData();
-                return true;
-            case R.id.mini_card_settings:
-                lastPosition = mViewPager.getViewPager().getCurrentItem();
-                if (item.isChecked()){
-                    item.setChecked(false);
-                    Variable.setMiniCardConf(c,false);
-                    setUpMaterialViewPager();
-                }
-                else {
-                    item.setChecked(true);
-                    Variable.setMiniCardConf(c,true);
-                    setUpMaterialViewPager();
-                }
+            case R.id.action_search:
+                startActivity(new Intent(this,SearchActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -173,6 +155,8 @@ public class MainActivity extends DrawerActivity{
     public void onResume() {
         super.onResume();
         navigationView.getMenu().getItem(0).setChecked(true);
+        setUpMaterialViewPager();
+//        mViewPager.getViewPager().setAdapter(new ListCategoryFPA(getSupportFragmentManager()));
         if (drawer.isDrawerOpen(GravityCompat.START)) drawer.closeDrawer(GravityCompat.START);
 
         LocalBroadcastManager.getInstance(c).registerReceiver(mMessageReceiverMain,
@@ -330,18 +314,18 @@ public class MainActivity extends DrawerActivity{
             public HeaderDesign getHeaderDesign(int page) {
                 switch (page) {
                     case 0:
-                        logo.setText(R.string.fa_bullhorn);
+                        logo.setText(R.string.fa_building);
                         return HeaderDesign.fromColorResAndUrl(
                                 R.color.colorAccent,
                                 "http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2014/06/wallpaper_51.jpg");
                     case 1:
-                        logo.setText(R.string.fa_comments);
+                        logo.setText(R.string.fa_cutlery);
 
                         return HeaderDesign.fromColorResAndUrl(
                                 R.color.colorAccent,
                                 "http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2014/06/wallpaper_51.jpg");
                     case 2:
-                        logo.setText(R.string.fa_bullhorn);
+                        logo.setText(R.string.fa_beer);
                         return HeaderDesign.fromColorResAndUrl(
                                 R.color.colorAccent,
                                 "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");

@@ -45,6 +45,33 @@
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:text="Asian Grill"/>
+
+            <TextView
+                android:id="@+id/time_open"
+                android:layout_alignTop="@id/card_judul"
+                android:layout_alignParentRight="true"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:text="09:00 - 21:00"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/card_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/grey"
+                android:textSize="15dp"
+                android:layout_below="@id/card_judul"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Description Here..."/>
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

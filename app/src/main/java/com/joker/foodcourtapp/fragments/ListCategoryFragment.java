@@ -3,9 +3,11 @@ package com.joker.foodcourtapp.fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,22 +17,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.joker.foodcourtapp.MenuActivity;
 import com.joker.foodcourtapp.R;
 import com.joker.foodcourtapp.models.Category;
-import com.joker.foodcourtapp.models.Post;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -42,7 +34,7 @@ public class ListCategoryFragment extends Fragment {
     private ArrayList<Category> categories = new ArrayList<>();
     private MainAdapter adapter;
 //    private onCardSelected mListener;
-    private int categoriesId;
+    private int pos;
     private boolean MINI_CARD = false;
 
     static final int TYPE_HEADER = 0;
@@ -67,25 +59,27 @@ public class ListCategoryFragment extends Fragment {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup viewGroup,int viewType){
-            View itemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_card_big, viewGroup,false);
+            View itemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_card_small, viewGroup,false);
             return new ViewHolder(itemView);
         }
 
         @Override
         public void onBindViewHolder(ViewHolder viewHolder,final int position){
             final Category category = categories.get(position);
-
+            final String category_name = category.getName();
+            Log.d("ctgry",category_name);
             // Without this , some view maybe will be same after scrolling
             viewHolder.vImageView.setImageDrawable(null);
             viewHolder.vName.setText(null);
             //////////////////////////////////////////////////////////////
 
-            viewHolder.setData(category.getName());
+            viewHolder.setData(category.getName(),category.getImgUrl());
 
             viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
                     Intent intent = new Intent(getActivity(),MenuActivity.class);
+                    intent.putExtra("category_name",category_name);
                     startActivity(intent);
                 }
             });
@@ -114,12 +108,19 @@ public class ListCategoryFragment extends Fragment {
 
             // Get references to image and name.
             vImageView = (ImageView) itemView.findViewById(R.id.card_thumbnail);
-            vName = (TextView) itemView.findViewById(R.id.card_judul);
+            vName = (TextView) itemView.findViewById(R.id.ctgry_Name);
         }
 
-        private void setData(String name) {
-            vImageView.getLayoutParams().height = 400;
-            vImageView.setImageResource(R.drawable.logo_ppni);
+        private void setData(String name,String url) {
+//            vImageView.setImageResource(R.drawable.logo_ppni);
+//            Picasso.with(itemView.getContext()).load(url).into(vImageView);
+            Glide
+                    .with(itemView.getContext())
+                    .load(url)
+                    .centerCrop()
+                    .placeholder(R.color.grey)
+                    .crossFade()
+                    .into(vImageView);
             vName.setText(name);
         }
     }
@@ -127,37 +128,67 @@ public class ListCategoryFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        addDumpCategoryData(context);
+//        adapter.notifyDataSetChanged();
+//        RequestQueue requestQueue = Volley.newRequestQueue(context);
+//        String url = "http://192.168.43.213:8080/outlet/get-outlets";
+//
+//        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET,url,null,
+//                new Response.Listener<JSONArray>(){
+//                    @Override
+//                    public void onResponse(JSONArray response){
+//                        try {
+//                            for (int i = 0 ; i < response.length(); i++){
+//                                JSONObject objCategory = response.getJSONObject(i);
+//                                Log.d("Outlet", objCategory.getString("name"));
+//
+//                                Category category = new Category();
+//                                category.setName(objCategory.getString("name"));
+//                                categories.add(category);
+//                            }
+//                            adapter.notifyDataSetChanged();
+//                        }catch (JSONException e){
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                },new Response.ErrorListener(){
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.e("Volley","Error");
+//            }
+//        }
+//        );
+//        requestQueue.add(jsonArrayRequest);
 
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
-        String url = "http://192.168.43.213:8080/outlet/get-outlets";
+    }
 
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET,url,null,
-                new Response.Listener<JSONArray>(){
-                    @Override
-                    public void onResponse(JSONArray response){
-                        try {
-                            for (int i = 0 ; i < response.length(); i++){
-                                JSONObject objCategory = response.getJSONObject(i);
-                                Log.d("Outlet", objCategory.getString("name"));
+    public void addDumpCategoryData(Context context){
+        final Resources resources = context.getResources();
+        String[] categoryResource;
+        String[] categoryImgUrlResource;
+        Bundle bundle = this.getArguments();
+        pos = bundle.getInt("index_ctgry");
 
-                                Category category = new Category();
-                                category.setName(objCategory.getString("name"));
-                                categories.add(category);
-                            }
-                            adapter.notifyDataSetChanged();
-                        }catch (JSONException e){
-                            e.printStackTrace();
-                        }
-                    }
-                },new Response.ErrorListener(){
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("Volley","Error");
-            }
+        if(pos == 1){
+            categoryResource = resources.getStringArray(R.array.foodCtgry);
+            categoryImgUrlResource = resources.getStringArray(R.array.foodCtgryImgUrl);
+        }else{
+            categoryResource = resources.getStringArray(R.array.drinkCtgry);
+            categoryImgUrlResource = resources.getStringArray(R.array.drinkCtgryImgUrl);
         }
-        );
-        requestQueue.add(jsonArrayRequest);
+        for (int i=0;i< categoryResource.length;i++){
+//        for (int i=0;i< 50;i++){
+            Category category = new Category();
+            category.setName(categoryResource[i]);
+            category.setImgUrl(categoryImgUrlResource[i]);
+            categories.add(category);
+        }
 
+        // Get rage face images.
+//        final TypedArray typedArray = resources.obtainTypedArray(R.array.images);
+//        final int imageCount = tenants.length;
+//        int mImageResIds = typedArray.getResourceId(0, 0);
+//        typedArray.recycle();
     }
 
     @Nullable
@@ -170,8 +201,8 @@ public class ListCategoryFragment extends Fragment {
         final Activity activity = getActivity();
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
-        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-//        recyclerView.setLayoutManager(new GridLayoutManager(activity,2));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        recyclerView.setLayoutManager(new GridLayoutManager(activity,2));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
 

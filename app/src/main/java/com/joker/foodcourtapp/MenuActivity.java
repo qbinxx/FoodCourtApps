@@ -10,6 +10,7 @@ import com.joker.foodcourtapp.fragments.MenuListFragment;
 
 public class MenuActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +28,7 @@ public class MenuActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0);
+        getSupportActionBar().setTitle(getIntent().getExtras().getString("category_name"));
 
     }
 

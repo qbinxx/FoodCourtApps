@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp"
+        tools:context="com.qepon.rick.qeponsquareppni.ProfileActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/bg_profile">
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/top_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_bg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="150dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tenant_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your Name"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tenant_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description Tenant..."
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/tenant_name"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginRight="130dp"
+                android:layout_marginLeft="130dp"
+                android:background="@drawable/ic_open"
+                />
+
+            <TextView
+                android:id="@+id/open_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="(09:00 AM - 09:00 PM)"/>
+
+            <!--<TextView-->
+
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Your status here"-->
+            <!--android:textAlignment="center"/>-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Your Location"-->
+            <!--android:textAlignment="center"-->
+            <!--android:layout_marginTop="20dp"/>-->
+
+        </LinearLayout>
+
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/recycler_menu"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/top_profile"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:orientation="vertical"/>-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_profile"/>
+
+        <!--<com.pnikosis.materialishprogress.ProgressWheel-->
+            <!--android:id="@+id/progress_wheel"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--wheel:matProg_progressIndeterminate="true"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_marginTop="50dp"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--/>-->
+
+    </RelativeLayout>
+
+</ScrollView>

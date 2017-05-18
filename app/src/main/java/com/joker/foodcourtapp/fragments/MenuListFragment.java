@@ -2,6 +2,7 @@ package com.joker.foodcourtapp.fragments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -16,15 +17,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
+import com.joker.foodcourtapp.DetailMenuActivity;
 import com.joker.foodcourtapp.R;
+import com.joker.foodcourtapp.TenantActivity;
+import com.joker.foodcourtapp.models.Menu;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 /**
  * Created by rick on 11/08/16.
  */
 public class MenuListFragment extends Fragment {
 
-    private int[] mImageResIds;
-    private String[] mNames;
+    private ArrayList<Menu> menus = new ArrayList<>();
 
     public static MenuListFragment newInstance() {
         return new MenuListFragment();
@@ -57,15 +63,24 @@ public class MenuListFragment extends Fragment {
         @Override
         public void onBindViewHolder(ViewHolder viewHolder,final int position){
 
-            final int imageResId = mImageResIds[position];
-            final String name = mNames[position];
-            viewHolder.setData(imageResId, name);
+            final Menu menu = menus.get(position);
+            final String foodName = menu.getName();
+            final String imgUrl = menu.getImgUrl();
+            viewHolder.setData(imgUrl, foodName);
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    Intent intent = new Intent(getActivity(),DetailMenuActivity.class);
+                    intent.putExtra("food_name",foodName);
+                    startActivity(intent);
+                }
+            });
 
         }
 
         @Override
         public int getItemCount(){
-            return mNames.length;
+            return menus.size();
         }
     }
 
@@ -78,12 +93,12 @@ public class MenuListFragment extends Fragment {
             super(itemView);
 
             // Get references to image and name.
-            mImageView = (ImageView) itemView.findViewById(R.id.comic_image);
-            mNameTextView = (TextView) itemView.findViewById(R.id.name);
+            mImageView = (ImageView) itemView.findViewById(R.id.iv_food_img);
+            mNameTextView = (TextView) itemView.findViewById(R.id.tv_food_name);
         }
 
-        private void setData(int imageResId, String name) {
-            mImageView.setImageResource(imageResId);
+        private void setData(String imgUrl, String name) {
+            Picasso.with(itemView.getContext()).load(imgUrl).into(mImageView);
             mNameTextView.setText(name);
         }
     }
@@ -91,19 +106,17 @@ public class MenuListFragment extends Fragment {
     @Override
     public void onAttach(Context context){
         super.onAttach(context);
+        addDummyDataMenu();
+    }
 
-        //Get Data from resource
-        final Resources resources = context.getResources();
-        mNames = resources.getStringArray(R.array.names);
-
-        // Get rage face images.
-        final TypedArray typedArray = resources.obtainTypedArray(R.array.images);
-        final int imageCount = mNames.length;
-        mImageResIds = new int[imageCount];
-        for (int i = 0; i < imageCount; i++) {
-            mImageResIds[i] = typedArray.getResourceId(i, 0);
-        }
-        typedArray.recycle();
+    public void addDummyDataMenu(){
+//        Menu menu1 = new Menu("Asian Food","http://img.huffingtonpost.com/asset/scalefit_970_noupscale/585be1aa1600002400bdf2a6.jpeg");
+//        Menu menu2 = new Menu("Mie","http://www.suratkabar.id/wp-content/uploads/2017/01/mie-instan.jpg");
+//        Menu menu3 = new Menu("Nasi Goreng","http://sejutafakta.com/wp-content/uploads/2016/11/nasi_goreng_enak.jpg");
+//
+//        menus.add(menu1);
+//        menus.add(menu2);
+//        menus.add(menu3);
     }
 
     @Nullable
@@ -114,7 +127,7 @@ public class MenuListFragment extends Fragment {
         final Activity activity = getActivity();
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
-        recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(activity, 1));
         recyclerView.setAdapter(new ExploreAdapter());
         return view;
     }

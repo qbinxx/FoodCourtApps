@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.joker.foodcourtapp.fragments.ListCategoryFragment;
+import com.joker.foodcourtapp.fragments.ListTenantFragment;
 import com.joker.foodcourtapp.utils.Constant;
 
 /**
@@ -21,9 +22,17 @@ public class ListCategoryFPA extends FragmentStatePagerAdapter{
     @Override
     public Fragment getItem(int position) {
         Bundle bundle = new Bundle();
-        ListCategoryFragment fragment = new ListCategoryFragment().newInstance();
-        fragment.setArguments(bundle);
-        return fragment;
+        if(position == 0){
+            ListTenantFragment fragment = new ListTenantFragment().newInstance();
+            fragment.setArguments(bundle);
+            return fragment;
+        }else{
+            ListCategoryFragment fragment = new ListCategoryFragment().newInstance();
+            bundle.putInt("index_ctgry",position);
+            fragment.setArguments(bundle);
+            return fragment;
+        }
+
     }
 
     // Jumlah Page yang akan ditampilkan

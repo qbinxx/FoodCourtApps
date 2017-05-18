@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/ctgry_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="- Most Popular-"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"/>
+
+    <LinearLayout
+        android:id="@+id/bottom_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_bg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="vertical"
+        android:layout_below="@id/top_profile">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_users"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@id/dtl_date_post"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"/>
+
+    </LinearLayout>
+</LinearLayout>

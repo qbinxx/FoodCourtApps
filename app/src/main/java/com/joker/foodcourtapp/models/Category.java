@@ -17,8 +17,10 @@ public class Category {
     private String bgColor;
     private String color;
     private String slug;
+    private String imgUrl;
     private int parentCid;
     private boolean disabled;
+    private ArrayList<Menu> listMenu = new ArrayList<>();
 
     public Category(){
 
@@ -131,5 +133,21 @@ public class Category {
 
     public void setDisabled(boolean disabled) {
         this.disabled = disabled;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public ArrayList<Menu> getListMenu() {
+        return listMenu;
+    }
+
+    public void setListMenu(ArrayList<Menu> listMenu) {
+        this.listMenu = listMenu;
     }
 }

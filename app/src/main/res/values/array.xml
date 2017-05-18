@@ -1,21 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="images">
-        <item>@drawable/ic_star</item>
-        <item>@drawable/ic_neutron</item>
-        <item>@drawable/ic_paper_plane</item>
-        <item>@drawable/ic_green_hand</item>
-        <item>@drawable/ic_mimbar</item>
-        <item>@drawable/ic_img</item>
+        <item>@drawable/aw</item>
     </array>
 
-    <string-array name="names">
-        <item>POPULER</item>
-        <item>IPTEK</item>
-        <item>RILEKS</item>
-        <item>LINGKUNGAN</item>
-        <item>KOMUNITAS</item>
-        <item>MOMENTS</item>
+    <string-array name="tenantsName">
+        <item>A &amp; W</item>
+        <item>Saung Soto</item>
+        <item>Just Us</item>
+        <item>Asian Grill</item>
+        <item>Racik Desa</item>
+        <item>Dapur Pasta</item>
+    </string-array>
+
+    <string-array name="tenantsImgUrl">
+        <!--<item>http://www.ummi-online.com/po-content/po-upload/65Infused%20Water%20Minuman%20dengan%20Potongan%20Buah-Buahan%20yang%20Menyegarkan%20dan%20Menyehatkan.jpg</item>-->
+        <item>http://www.polarbev.com/Portals/0/2013%20Images/AW_rootbeer_logo.png</item>
+        <item>https://4.bp.blogspot.com/-g1Z2Kft6HWc/VabL4Re2kII/AAAAAAAAA_w/JXrh61cB5e8/s1600/KSIR1.jpg</item>
+        <item>http://hiredtoday.com/employer/images/2017/3/22/28c349dfef.jpg</item>
+        <item>http://greatdealsmagazine.net/files/gallery/asiangrill/asian-grill-logo_greatdeals1357159538.jpg</item>
+        <item>http://jogjakarier.com/wp-content/uploads/2015/09/logo-racik-desa.jpg</item>
+        <item>http://www.dapurpasta.com/wp-content/uploads/2015/11/logo-footer.png</item>
+    </string-array>
+
+    <string-array name="foodCtgry">
+        <item>Asian Food</item>
+        <item>Mie</item>
+        <item>Nasi Goreng</item>
+        <item>Sea Food</item>
+        <item>Steak</item>
+        <item>Sundanese Food</item>
+    </string-array>
+
+    <string-array name="foodCtgryImgUrl">
+        <item>http://img.huffingtonpost.com/asset/scalefit_970_noupscale/585be1aa1600002400bdf2a6.jpeg</item>
+        <!--<item>http://www.ummi-online.com/po-content/po-upload/65Infused%20Water%20Minuman%20dengan%20Potongan%20Buah-Buahan%20yang%20Menyegarkan%20dan%20Menyehatkan.jpg</item>-->
+        <item>http://www.suratkabar.id/wp-content/uploads/2017/01/mie-instan.jpg</item>
+        <item>http://sejutafakta.com/wp-content/uploads/2016/11/nasi_goreng_enak.jpg</item>
+        <item>https://www.inspirasi.co/post_image/file_1484117125.jpg</item>
+        <item>https://www.healthydietadvisor.com/wp-content/uploads/2014/08/grilled-pepper-steak.jpg</item>
+        <item>https://3.bp.blogspot.com/_sBx1I8XJ7uU/Shlf-ndZNUI/AAAAAAAAACg/2eYv71_-KiA/s1600/dago_14.JPG</item>
+    </string-array>
+
+    <string-array name="drinkCtgry">
+        <item>Beer</item>
+        <item>Bubbletea</item>
+        <item>Juice</item>
+        <item>Tea</item>
+        <item>Hot Drink</item>
+        <item>Cold Drink</item>
+    </string-array>
+
+    <string-array name="drinkCtgryImgUrl">
+        <!--<item>http://www.ummi-online.com/po-content/po-upload/65Infused%20Water%20Minuman%20dengan%20Potongan%20Buah-Buahan%20yang%20Menyegarkan%20dan%20Menyehatkan.jpg</item>-->
+        <item>http://www.beer100.com/images/beermug.jpg</item>
+        <item>http://www.mooboo.co/Style%20Library/Mooboo/images/home-bubble-tea.png</item>
+        <item>http://kingofwallpapers.com/juice/juice-006.jpg</item>
+        <item>http://www.natashaspierogi.com/wp-content/uploads/2016/05/Tea.jpg</item>
+        <item>http://www.webdesignhot.com/wp-content/uploads/2011/01/CupofHotDrinkwithSteamonTheTablePreview.jpg</item>
+        <item>http://2.wlimg.com/product_images/bc-full/dir_14/390111/cold-drink-bottles-1181028.jpg</item>
+    </string-array>
+
+
+
+    <string-array name="deskripsi">
+        <item>Description here...</item>
     </string-array>
 
     <string-array name="judul">
@@ -32,6 +81,8 @@
         <item>description of Medali Emas Pertama Indonesia di Olimpiade Rio</item>
         <item>description of Bumi memiliki permukaan datar?</item>
     </string-array>
+
+
 
     <array name="news_image">
     </array>

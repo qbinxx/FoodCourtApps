@@ -3,55 +3,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
     >
 
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/cardMarginVertical"
         android:layout_marginLeft="@dimen/cardMarginHorizontal"
         android:layout_marginRight="@dimen/cardMarginHorizontal"
         android:layout_marginTop="@dimen/cardMarginVertical"
         app:cardCornerRadius="2dp"
         app:cardElevation="2dp"
-        app:cardPreventCornerOverlap="false"
-        app:contentPadding="10dp">
+        app:cardPreventCornerOverlap="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="10dp">
 1
-    <ImageView
-        android:id="@+id/comic_image"
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_gravity="center_horizontal"
-        android:adjustViewBounds="true"
-        android:contentDescription="@null"/>
+            <ImageView
+                android:id="@+id/iv_food_img"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"/>
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="POPULER"
-            android:textAlignment="center"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:paddingBottom="25dp"
-            />
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp 20,000"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:background="@color/transparent_red"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="Followed"
-            android:textAlignment="center"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:textColor="#28b128"
-            />
+            <TextView
+                android:id="@+id/tv_food_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/iv_food_img"
+                android:paddingBottom="5dp"
+                android:text="POPULER"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                />
 
-<!--name-->
+            <ImageView
+                android:id="@+id/iv_ic_store"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_below="@id/tv_food_name"
+                android:layout_alignLeft="@id/tv_food_name"
+                android:background="@drawable/ic_store_black_24dp"/>
+
+            <TextView
+                android:id="@+id/tv_tenant_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/iv_ic_store"
+                android:layout_toRightOf="@id/iv_ic_store"
+                android:layout_marginLeft="10dp"
+                android:paddingTop="3dp"
+                android:text="Rumah Ikan"/>
+
+        </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 

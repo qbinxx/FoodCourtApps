@@ -23,6 +23,9 @@
     <!--Font Awesome-->
     <string name="fa_comments">&#xf086;</string>
     <string name="fa_bullhorn">&#xf0a1;</string>
+    <string name="fa_beer">&#xf0fc;</string>
+    <string name="fa_cutlery">&#xf0f5;</string>
+    <string name="fa_building">&#xf0f7;</string>
 
     <string name="dummy_button">Dummy Button</string>
 
